@@ -1,6 +1,5 @@
-# Yearofmoo AngularJS Seed Repo
-
-A starter AngularJS repository for getting started with AngularJS. Includes helpful unit testing tools, Protractor integration and coverage testing.
+# DGMT! WebApp
+DGMT! as an angular web app.  Goal is to be self-contained.
 
 ## Installation
 
