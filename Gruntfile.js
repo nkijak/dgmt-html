@@ -6,6 +6,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-connect');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-jade');
 
   grunt.initConfig({
     shell: {
@@ -71,8 +72,10 @@ module.exports = function(grunt) {
         src: [
           'lib/angular-1.2.0-rc.2/angular.js',
           'lib/angular-1.2.0-rc.2/angular-route.js',
-          'app/scripts/homePages.js',
           'app/scripts/app.js',
+          'app/scripts/controllers/*.js',
+          'app/scripts/services/*.js',
+          'app/scripts/directives/*.js'
           //place your JavaScript files here
         ]
       },
@@ -82,13 +85,17 @@ module.exports = function(grunt) {
       options : {
         livereload: 7777
       },
+      jade: {
+        files: ['app/jade-templates/*.jade'],
+        tasks: ['jade:compile']
+      },
       styles: {
         files: ['app/styles/**/*.css'],
         tasks: ['concat:styles']
       },
       scripts: {
         files: ['app/scripts/**/*.js'],
-        tasks: ['concat:scripts']
+        tasks: ['concat:scripts', 'jade:compile']
       },
     },
 
@@ -125,6 +132,21 @@ module.exports = function(grunt) {
           dir : 'coverage/'
         }
       },
+    },
+
+    jade: {
+        compile: {
+            options: {
+                pretty: true
+            },
+            files: [{
+                expand: true,
+                src: "*.jade",
+                dest: "./app/templates/",
+                ext: ".html",
+                cwd: "./app/jade-templates/"
+            }]
+        }
     }
   });
 
@@ -147,7 +169,7 @@ module.exports = function(grunt) {
   grunt.registerTask('default', ['dev']);
 
   //development
-  grunt.registerTask('dev', ['update', 'concat', 'connect:devserver', 'open:devserver', 'watch']);
+  grunt.registerTask('dev', ['update', 'jade:compile', 'concat', 'connect:devserver', 'open:devserver', 'watch']);
 
   //server daemon
   grunt.registerTask('serve', ['connect:webserver']);

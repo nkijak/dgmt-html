@@ -4,8 +4,7 @@ module.exports = function(config) {
       'lib/angular-1.2.0-rc.2/angular.js',
       'lib/angular-1.2.0-rc.2/angular-route.js',
       'lib/angular-1.2.0-rc.2/angular-mocks.js',
-      'app/scripts/homePages.js',
-      'app/scripts/app.js',
+      'app/scripts/**/*.js',
       'test/unit/**/*.js'
     ],
     basePath: '../',
