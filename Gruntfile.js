@@ -39,6 +39,7 @@ module.exports = function(grunt) {
       },
       devserver: {
         options: {
+          hostname: '*',
           port: 8888
         }
       },

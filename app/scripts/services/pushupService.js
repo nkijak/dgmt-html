@@ -9,7 +9,9 @@ angular.module("dgmt.services", [])
                 "MID": [[5, 3, 3, 4, 3],[5, 3, 3, 5, 3],[5, 3, 3, 5, 3]],
                 "HARD": [[7, 5, 5, 6, 5],[7, 5, 5, 7, 5],[7, 5, 5, 7, 7]]},
         ];
+        var currentWorkout = [];
         return {
+            currentWorkout: currentWorkout, 
             workoutFor: function(index, level) {
                 var week = Math.floor(index / 3);
                 var day = index % 3;

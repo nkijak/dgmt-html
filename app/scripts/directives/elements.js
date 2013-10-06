@@ -23,7 +23,7 @@ module.directive("workoutSelect", ["PushupSchedule", function(PushupSchedule){
         controller: function($scope) {
             this.setWorkout = function(episode, level) {
                 $scope.workout = PushupSchedule.workoutFor(episode, level);
-                $scope.$apply();
+                PushupSchedule.currentWorkout = $scope.workout;
             }
         },
         link: function(scope, element, attrs, ctrl) {
