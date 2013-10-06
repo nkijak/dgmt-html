@@ -1,2 +1,2 @@
-select.touchable(ng-model="episode", ng-options="eps for eps in episodes")
-select.touchable(ng-model="level", ng-options="level for level in levels")
+select.touchable#episode(ng-model="episode", ng-options="eps.label for eps in episodes")
+select.touchable#level(ng-model="level", ng-options="level for level in levels")

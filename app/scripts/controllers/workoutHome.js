@@ -1,9 +1,8 @@
-var module = angular.module("dgmt.workoutHome", ['dgmt.ui.elements']);
+var module = angular.module("dgmt.controllers", ['dgmt.ui.elements']);
 
-module.controller("WorkoutHomeCtrl", function($scope) {
+module.controller("WorkoutHomeCtrl", function($scope, $location) {
     $scope.instruction = "Initializing...";
     $scope.go = function() {
-        $scope.instruction = "RUNNING";
-
+       $location.path("/exercise"); 
     }
 });

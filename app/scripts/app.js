@@ -1,4 +1,4 @@
-angular.module('dgmt', ['ngRoute', 'dgmt.workoutHome'])
+angular.module('dgmt', ['ngRoute', 'dgmt.controllers'])
 
   .constant('TPL_PATH', '/templates')
 
@@ -6,5 +6,10 @@ angular.module('dgmt', ['ngRoute', 'dgmt.workoutHome'])
     $routeProvider.when('/',{
       controller : 'WorkoutHomeCtrl',
       templateUrl : TPL_PATH + '/workoutHome.html'
-    });
+    })
+    .when('/exercise', {
+        controller: 'ExerciseCtrl',
+        templateUrl: TPL_PATH + '/exercise.html'
+    })
+    ;
   });

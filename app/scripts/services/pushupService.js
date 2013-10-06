@@ -19,7 +19,7 @@ angular.module("dgmt.services", [])
                 var eps = [];
                 for (var w = 1; w <= 2; w++) {
                    for (var d = 1; d <= 3; d++) {
-                       eps.push("week "+w+" day "+d);
+                       eps.push({label:("week "+w+" day "+d), value: ((w-1)*3 + d)});
                    }
                 }
                 return eps;
