@@ -43,7 +43,36 @@ module.directive("workoutSelect", ["PushupSchedule", function(PushupSchedule){
 module.directive("overviewChart", [function() {
     return {
         restrict: 'E',
-        template: '<div class="chart"></div>'
+        template: '<svg class="chart" />',
+		link: function(scope, element, attrs){
+						
+			var h = element.prop("offsetHeight"),
+				w = element.prop("offsetWidth");
+			
+			var y = d3.scale.linear()
+						.domain([0, d3.max(scope.workout)])
+						.range([0, h - 20]);
+			var x = d3.scale.linear()
+						.domain([0, scope.workout.length * 20 + 10])
+						.rangeRound([0, w - 50]);
+			var chart = d3.select(".chart");
+			
+		    var bars = chart.selectAll("rect").data(scope.workout);
+			bars.enter()
+				.append("rect")
+				.attr("x", function(d,i){ return x(i * 20 + 10); })
+				.attr("y", function(d) { return h - y(d);})
+				.attr("height", y)
+				.attr("width", 20);
+
+			scope.$watch('workout', function (value) {
+				bars.data(value)
+					.transition()
+						.duration(1000)
+						.attr("height", y);
+			});
+			
+		}
     }
 }]);
 

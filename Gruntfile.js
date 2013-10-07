@@ -76,7 +76,8 @@ module.exports = function(grunt) {
           'app/scripts/app.js',
           'app/scripts/controllers/*.js',
           'app/scripts/services/*.js',
-          'app/scripts/directives/*.js'
+          'app/scripts/directives/*.js',
+		  'bower_components/d3/d3.min.js'
           //place your JavaScript files here
         ]
       },
