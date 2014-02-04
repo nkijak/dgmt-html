@@ -1,4 +1,4 @@
-var module = angular.module('app.controllers', ['app.services']);
+var module = angular.module('dgmt.controllers');
 
 module.controller('ExerciseCtrl', function($scope, PushupSchedule) {
     var count = 0; 
@@ -7,3 +7,4 @@ module.controller('ExerciseCtrl', function($scope, PushupSchedule) {
         console.log(count);
     };
 });
+

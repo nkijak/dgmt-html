@@ -1,5 +1,5 @@
 {
-  "name": "angularjs-seed-repo",
+  "name": "DGMT!HTML",
   "version": "0.0.0",
   "devDependencies": {
     "grunt": "~0.4.1",
@@ -10,7 +10,6 @@
     "grunt-contrib-concat": "~0.3.0",
     "grunt-open": "~0.2.2",
     "grunt-contrib-jade": "~0.8.0",
-
     "bower": "~1.2.6",
     "karma-script-launcher": "~0.1.0",
     "karma-firefox-launcher": "~0.1.0",
@@ -21,7 +20,8 @@
     "karma-coffee-preprocessor": "~0.1.0",
     "karma-phantomjs-launcher": "~0.1.0",
     "karma-coverage": "~0.1.0",
-    "karma": "~0.10.2",
-    "protractor": "~0.9.0"
+    "karma": "~0.10.9",
+    "protractor": "~0.9.0",
+    "grunt-bower-task": "~0.3.4"
   }
 }

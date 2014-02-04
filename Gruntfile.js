@@ -7,6 +7,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-jade');
+  grunt.loadNpmTasks('grunt-bower-task');
 
   grunt.initConfig({
     shell: {
@@ -71,13 +72,14 @@ module.exports = function(grunt) {
         },
         dest: './app/assets/app.js',
         src: [
-          'lib/angular-1.2.0-rc.2/angular.js',
-          'lib/angular-1.2.0-rc.2/angular-route.js',
+          'lib/angular.js',
+          'lib/angular-*.js',
+          '!lib/angular-scenario.js',
           'app/scripts/app.js',
           'app/scripts/controllers/*.js',
           'app/scripts/services/*.js',
           'app/scripts/directives/*.js',
-		  'bower_components/d3/d3.min.js'
+    		  'lib/d3.js'
           //place your JavaScript files here
         ]
       },
@@ -149,6 +151,16 @@ module.exports = function(grunt) {
                 cwd: "./app/jade-templates/"
             }]
         }
+    },
+
+    bower: {
+      install: {
+        options: {
+          layout: function(type, component) {
+            return '';
+          }
+        }
+      }
     }
   });
 
@@ -165,7 +177,7 @@ module.exports = function(grunt) {
 
   //installation-related
   grunt.registerTask('install', ['update','shell:protractor_install']);
-  grunt.registerTask('update', ['shell:npm_install','shell:bower_install']);
+  grunt.registerTask('update', ['shell:npm_install','shell:bower_install', 'bower:install']);
 
   //defaults
   grunt.registerTask('default', ['dev']);

@@ -1,4 +1,4 @@
-angular.module('dgmt', ['ngRoute', 'dgmt.controllers'])
+angular.module('dgmt', ['ngRoute', 'ngTouch', 'dgmt.controllers'])
 
   .constant('TPL_PATH', '/templates')
 
@@ -13,3 +13,5 @@ angular.module('dgmt', ['ngRoute', 'dgmt.controllers'])
     })
     ;
   });
+
+angular.module("dgmt.controllers", ['dgmt.ui.elements', 'dgmt.services']);

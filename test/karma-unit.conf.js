@@ -1,18 +1,26 @@
 module.exports = function(config) {
   config.set({
+    basePath: '../',
     files : [
-      'lib/angular-1.2.0-rc.2/angular.js',
-      'lib/angular-1.2.0-rc.2/angular-route.js',
-      'lib/angular-1.2.0-rc.2/angular-mocks.js',
-      'app/scripts/**/*.js',
+      'lib/angular.js',
+      'lib/angular-*.js',
+      'app/assets/app.js',
       'test/unit/**/*.js'
     ],
-    basePath: '../',
+    
+    exclude: [
+      'lib/angular-loader.js',
+      'lib/angular-scenario.js',
+    ],
+    
+
     frameworks: ['jasmine'],
-    reporters: ['progress'],
+
     browsers: ['Chrome'],
-    autoWatch: false,
-    singleRun: true,
+
+    reporters: ['progress'],
+
+
     colors: true
   });
 };
