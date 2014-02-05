@@ -72,6 +72,7 @@ module.exports = function(grunt) {
         },
         dest: './app/assets/app.js',
         src: [
+          'lib/jquery.js',
           'lib/angular.js',
           'lib/angular-*.js',
           '!lib/angular-scenario.js',
