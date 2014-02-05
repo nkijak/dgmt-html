@@ -14,8 +14,8 @@ module.directive("speechBubble", [function() {
       element.find("div.speech").text(text);
     }
 
-    scope.$watch('workout', function(values){
-      console.log("speechBubble: workout changed..");
+    scope.$watch('workout', function(values, oldValues){
+      console.log("speechBubble: workout changed.. to %o from %o",values, oldValues);
       updateText(values);
     });
 

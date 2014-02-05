@@ -2,10 +2,12 @@ module.exports = function(config) {
   config.set({
     basePath: '../',
     files : [
+      'lib/jquery.js',
       'lib/angular.js',
       'lib/angular-*.js',
-      'app/assets/app.js',
-      'test/unit/**/*.js'
+      'app/scripts/**/*.js',
+      'test/unit/**/*.js',
+      'app/templates/*.html'
     ],
     
     exclude: [
@@ -13,6 +15,9 @@ module.exports = function(config) {
       'lib/angular-scenario.js',
     ],
     
+    ngHtml2JsPreprocessor: {
+      stripPrefix: 'app'
+    },
 
     frameworks: ['jasmine'],
 
@@ -20,6 +25,11 @@ module.exports = function(config) {
 
     reporters: ['progress'],
 
+    preprocessors: {
+      'app/templates/*.html': 'ng-html2js'
+    },
+
+    loggers:  [{type:'console'}],
 
     colors: true
   });
