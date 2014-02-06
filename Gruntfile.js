@@ -51,7 +51,8 @@ module.exports = function(grunt) {
       },
       coverage: {
         options: {
-          base: 'coverage/',
+          base: 'coverage',
+          directory: 'coverage',
           port: 5555,
           keepalive: true
         }
@@ -81,7 +82,6 @@ module.exports = function(grunt) {
           'app/scripts/services/*.js',
           'app/scripts/directives/*.js',
     		  'lib/d3.js'
-          //place your JavaScript files here
         ]
       },
     },
@@ -130,6 +130,7 @@ module.exports = function(grunt) {
         singleRun: true,
         reporters: ['progress', 'coverage'],
         preprocessors: {
+          'app/templates/*.html': 'ng-html2js',
           'app/scripts/**/*.js': ['coverage']
         },
         coverageReporter: {

@@ -21,7 +21,7 @@ module.exports = function(config) {
 
     frameworks: ['jasmine'],
 
-    browsers: ['Chrome'],
+    browsers: ['PhantomJS'],
 
     reporters: ['progress'],
 
@@ -29,7 +29,6 @@ module.exports = function(config) {
       'app/templates/*.html': 'ng-html2js'
     },
 
-    loggers:  [{type:'console'}],
 
     colors: true
   });
