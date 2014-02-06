@@ -11,6 +11,10 @@ angular.module('dgmt', ['ngRoute', 'ngTouch', 'dgmt.controllers'])
         controller: 'ExerciseCtrl',
         templateUrl: TPL_PATH + '/exercise.html'
     })
+    .when('/rest', {
+      controller: 'RestCtrl',
+      temlateUrl: TPL_PATH + '/rest.html'
+    })
     ;
   });
 
