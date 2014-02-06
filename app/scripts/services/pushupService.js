@@ -13,15 +13,20 @@ angular.module("dgmt.services", [])
         return {
             currentWorkout: currentWorkout, 
             workoutFor: function(index, level) {
+                console.group("Getting workout...");
+                console.log("looking for ",index,level);
                 var week = Math.floor(index / 3);
+                console.log("week is "+week);
                 var day = index % 3;
+                console.log("day is "+day);
+                console.groupEnd();
                 return schedule[week][level][day];
             },
             episodes: function() { 
                 var eps = [];
                 for (var w = 1; w <= 2; w++) {
                    for (var d = 1; d <= 3; d++) {
-                       eps.push({label:("week "+w+" day "+d), value: ((w-1)*3 + d)});
+                       eps.push({label:("week "+w+" day "+d), value: ((w-1)*3 + (d-1))});
                    }
                 }
                 return eps;
