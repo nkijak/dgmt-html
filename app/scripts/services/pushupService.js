@@ -33,6 +33,10 @@ angular.module("dgmt.services", [])
             },
             levels: function() {
                 return ["HARD", "MID", "EASY"];
+            },
+            nextRest: function() {
+              return 30;
             }
+
         }
     });
