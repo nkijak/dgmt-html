@@ -64,7 +64,6 @@ module.exports = function(grunt) {
         dest: './app/assets/app.css',
         src: [
           'app/styles/app.css',
-          //place your Stylesheet files here
         ]
       },
       scripts: {

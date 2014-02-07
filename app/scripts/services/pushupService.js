@@ -13,13 +13,8 @@ angular.module("dgmt.services", [])
         return {
             currentWorkout: currentWorkout, 
             workoutFor: function(index, level) {
-                console.group("Getting workout...");
-                console.log("looking for ",index,level);
                 var week = Math.floor(index / 3);
-                console.log("week is "+week);
                 var day = index % 3;
-                console.log("day is "+day);
-                console.groupEnd();
                 return schedule[week][level][day];
             },
             episodes: function() { 
@@ -35,7 +30,7 @@ angular.module("dgmt.services", [])
                 return ["HARD", "MID", "EASY"];
             },
             nextRest: function() {
-              return 30;
+              return 30000;
             }
 
         }

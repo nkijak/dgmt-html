@@ -19,3 +19,4 @@ angular.module('dgmt', ['ngRoute', 'ngTouch', 'dgmt.controllers'])
   });
 
 angular.module("dgmt.controllers", ['dgmt.ui.elements', 'dgmt.services']);
+angular.module('dgmt.filters', []);

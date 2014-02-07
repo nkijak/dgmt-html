@@ -15,7 +15,6 @@ module.directive("speechBubble", [function() {
     }
 
     scope.$watch('workout', function(values, oldValues){
-      console.log("speechBubble: workout changed.. to %o from %o",values, oldValues);
       updateText(values);
     });
 
@@ -36,12 +35,10 @@ module.directive("workoutSelect", ["PushupSchedule", function(PushupSchedule){
   function link(scope, element, attrs) {
     function setWorkout(episode, level) {
       scope.workout = PushupSchedule.workoutFor(episode, level);
-      console.log("set scope workout to "+ scope.workout);
       PushupSchedule.currentWorkout = scope.workout;
     }
 
     element.find("select").on("change", function() {
-      console.log("changing...",scope.episode, scope.level);
       scope.$apply(setWorkout(scope.episode.value, scope.level));
     });
 
@@ -90,7 +87,6 @@ module.directive("overviewChart", [function() {
         .attr("width", 20);
 
       scope.$watch('workout', function (value) {
-        console.log("d3ing ",value);
         var y = d3.scale.linear()
           .domain([0, d3.max(scope.workout)])
           .range([0, h - 2 ]);

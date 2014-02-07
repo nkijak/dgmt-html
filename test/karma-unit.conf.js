@@ -23,7 +23,7 @@ module.exports = function(config) {
 
     browsers: ['PhantomJS'],
 
-    reporters: ['progress'],
+    reporters: ['spec'],
 
     preprocessors: {
       'app/templates/*.html': 'ng-html2js'
