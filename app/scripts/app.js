@@ -1,22 +1,26 @@
-angular.module('dgmt', ['ngRoute', 'ngTouch', 'dgmt.controllers'])
+angular.module('dgmt', ['ngRoute', 'ngTouch', 'dgmt.controllers', 'dgmt.filters'])
 
   .constant('TPL_PATH', '/templates')
 
-  .config(function($routeProvider, TPL_PATH) {
+  .config(function($routeProvider, TPL_PATH, $logProvider) {
+    $logProvider.debugEnabled(true);
+
     $routeProvider.when('/',{
       controller : 'WorkoutHomeCtrl',
       templateUrl : TPL_PATH + '/workoutHome.html'
     })
     .when('/exercise', {
-        controller: 'ExerciseCtrl',
-        templateUrl: TPL_PATH + '/exercise.html'
+      controller: 'ExerciseCtrl',
+      templateUrl: TPL_PATH + '/exercise.html'
     })
-    .when('/rest', {
+    .when('/rest/:time', {
       controller: 'RestCtrl',
-      temlateUrl: TPL_PATH + '/rest.html'
+      templateUrl: TPL_PATH + '/rest.html'
     })
-    ;
+    .otherwise({redirectTo:'/'});
+    
   });
 
-angular.module("dgmt.controllers", ['dgmt.ui.elements', 'dgmt.services']);
 angular.module('dgmt.filters', []);
+angular.module("dgmt.controllers", ['dgmt.ui.elements', 'dgmt.services']);
+

@@ -80,6 +80,7 @@ module.exports = function(grunt) {
           'app/scripts/controllers/*.js',
           'app/scripts/services/*.js',
           'app/scripts/directives/*.js',
+          'app/scripts/filters/*.js',
     		  'lib/d3.js'
         ]
       },
