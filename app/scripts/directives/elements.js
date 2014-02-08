@@ -102,3 +102,29 @@ module.directive("overviewChart", [function() {
   }
 }]);
 
+
+module.directive('hints', function() {
+  function link(scope, element, attr) {
+    element.children().hide();
+
+    function loop(list) {
+      if (!list || list.length == 0) return setTimeout(loop,0,element.children());
+      list.first().fadeIn(2000, function() {
+        list.first().fadeOut(2000, function() {
+          loop(list.next());
+        });
+
+      });
+    }
+
+    loop();
+
+  }
+  return {
+    restrict: 'C',
+    link: link
+  }
+});
+
+ 
+

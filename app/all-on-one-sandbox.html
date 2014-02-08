@@ -1,0 +1,62 @@
+
+<html>
+  <head>
+    <link rel="stylesheet" href="../lib/gumby.css" />
+    <link rel="stylesheet" href="styles/app.css" />
+    <style>
+      .hidden {
+        display: none;
+      }
+    </style>
+  </head>
+  <body ng-app="myApp">
+    <div class="content" ng-controller="restScreen">
+      <div class="row">
+        <div class="centered three columns">
+          <p>You got some work to do</p>
+          <p class="counter">{{time}}</p>
+          
+            <ul class="hints">
+              <li>Rest during this time</li>
+              <li>Remember to breathe while working</li>
+              <li>Let it go</li>
+              <li>eat shit asshole</li>
+            </ul>
+           
+          
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="../lib/jquery.js"?theseus=no"></script>
+    <script type="text/javascript" src="../lib/angular.js?theseus=no"></script>
+    <script type="text/javascript">
+      angular.module('myApp',[])
+        .controller('restScreen', function($scope) {
+          $scope.time = 30000;
+        })
+        .directive('hints', function() {
+          function link(scope, element, attr) {
+            element.children().hide();
+            
+            function loop(list) {
+              if (!list || list.length == 0) return setTimeout(loop,0,element.children());
+              list.first().fadeIn(2000, function() {
+                list.first().fadeOut(2000, function() {
+                  loop(list.next());
+                });
+                
+              });
+            }
+              
+            loop();
+              
+          }
+          return {
+            restrict: 'C',
+            link: link
+          }
+        });
+      
+    </script>
+  </body>
+</html>
